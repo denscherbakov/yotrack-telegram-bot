@@ -1,0 +1,4 @@
+./.idea
+./env
+./app/src/config/config.php
+./app/vendor
