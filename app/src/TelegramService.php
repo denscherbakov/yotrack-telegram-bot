@@ -8,6 +8,9 @@ class TelegramService
     private array  $config;
     private string $token;
 
+    CONST GET_UPDATES = '/getUpdates';
+    CONST SEND_MESSAGE = '/sendMessage';
+
     public function __construct(array $config)
     {
         $this->config = $config;
@@ -40,9 +43,23 @@ class TelegramService
         return Request::send(
             'GET',
             $this->getApiUrl(),
-            '/getUpdates'
+            self::GET_UPDATES
         );
     }
+
+	/**
+	 * @return array|string
+	 */
+	public function sendMessage(int $chatID, string $message): ?array
+	{
+		$query = Request::buildGetQuery(['chat_id' => $chatID, 'text' => $message]);
+
+		return Request::send(
+			'GET',
+			$this->getApiUrl(),
+			self::SEND_MESSAGE . '?' . $query,
+		);
+	}
 
     /**
      * @param array $output

@@ -31,4 +31,13 @@ class Request
             return $e->getMessage();
         }
     }
+
+	/**
+	 * @param array $params
+	 * @return string
+	 */
+    public static function buildGetQuery(array $params): string
+    {
+	    return http_build_query($params);
+    }
 }

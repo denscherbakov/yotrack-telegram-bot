@@ -61,6 +61,17 @@ class YoutrackService
         );
     }
 
+	public function getIssues($youtrackUser): ?array
+	{
+		return Request::send(
+			'GET',
+			$this->getApiUrl(),
+			$this->routes['api']['issues']['get.for'].$youtrackUser['login'],
+			$this->getHeaders()
+		);
+	}
+
+
     /**
      * @return string|null
      */

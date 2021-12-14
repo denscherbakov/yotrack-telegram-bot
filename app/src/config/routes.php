@@ -5,8 +5,8 @@ return [
         'users' => [
             'get.current.userdata' => 'admin/users/me?fields=id,login,name,email',
         ],
-        'tasks' => [
-                //
+        'issues' => [
+	        'get.for'           => 'issues?fields=id,summary,numberInProject,project(shortName),updated&query=for:+',
         ]
     ]
 ];

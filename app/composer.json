@@ -14,7 +14,6 @@
     "require": {
         "guzzlehttp/guzzle": "^7.0",
         "illuminate/database": "^8.75",
-        "illuminate/events": "^8.75",
-        "telegram-bot/api": "^2.3"
+        "illuminate/events": "^8.75"
     }
 }

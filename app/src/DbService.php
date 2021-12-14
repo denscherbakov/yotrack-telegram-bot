@@ -12,16 +12,16 @@ class DbService
     public Capsule $capsule;
     public Builder $schema;
 
-    public function connect()
+    public function connect(array $config)
     {
         $this->capsule = new Capsule();
 
         $this->capsule->addConnection([
             'driver' => 'mysql',
-            'host' => 'localhost',
-            'database' => 'database',
-            'username' => 'root',
-            'password' => 'password',
+            'host' => $config['db']['host'],
+            'database' => $config['db']['db_name'],
+            'username' => $config['db']['user'],
+            'password' => $config['db']['password'],
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
         ]);
